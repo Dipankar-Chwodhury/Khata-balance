@@ -4,7 +4,14 @@ const http = require('http');
 let latestBalance = 'Loading...';
 
 async function getBalance() {
-  const browser = await puppeteer.launch({ headless: true });
+  const browser = await puppeteer.launch({ 
+  headless: true,
+  args: [
+    '--no-sandbox',
+    '--disable-setuid-sandbox',
+    '--disable-dev-shm-usage'
+  ]
+});
   const page = await browser.newPage();
   
   await page.goto('https://khata.pe/t/vFoUcsXOjc?s=tbs', { 
