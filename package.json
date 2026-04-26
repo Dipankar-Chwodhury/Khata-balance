@@ -1,0 +1,11 @@
+{
+  "name": "khata-balance",
+  "version": "1.0.0",
+  "main": "scrap.js",
+  "scripts": {
+    "start": "node scrap.js"
+  },
+  "dependencies": {
+    "puppeteer": "^21.0.0"
+  }
+}
