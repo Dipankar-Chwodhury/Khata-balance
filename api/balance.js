@@ -1,7 +1,7 @@
 const puppeteer = require('puppeteer-core');
 const chromium = require('@sparticuz/chromium');
 
-export default async function handler(req, res) {
+module.exports = async function handler(req, res) {
   const browser = await puppeteer.launch({
     args: chromium.args,
     defaultViewport: chromium.defaultViewport,
@@ -33,5 +33,6 @@ export default async function handler(req, res) {
   });
 
   await browser.close();
+  res.setHeader('Content-Type', 'text/plain');
   res.send(`${result.drCr} ${result.balance}`);
-}
+};
